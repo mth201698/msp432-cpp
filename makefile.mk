@@ -9,7 +9,7 @@ OUTPUT_FILE = $(HEX_DIR)/$(PROJ_NAME)
 OPENOCD = openocd
 OBJCOPY = arm-none-eabi-objcopy
 OBJDUMP = arm-none-eabi-objdump
-SIZE = size
+SIZE = arm-none-eabi-size
 
 # clang is not supported (yet)
 ifeq ($(COMPILER),clang)
