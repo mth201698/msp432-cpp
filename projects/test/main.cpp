@@ -6,6 +6,7 @@
  */
 
 #include <span>
+#include <string>
 
 #include "cs.h"
 #include "cortexm4f.h"
@@ -29,6 +30,8 @@ W2812B<100> ledstrip{spi1};
 int main(void)
 {
     uint8_t green = 0;
+    uint32_t counter = 0;
+    std::string uart_data;
     chip.init();
 
     // UART0 pins
@@ -64,7 +67,9 @@ int main(void)
 
         green += 10;
         led_green.toggle();
-        uart0.write("\r\nTest write.");
+        counter += 1;
+        uart_data = std::format("\r\nTest write {}", counter);
+        uart0.write(uart_data);
         chip.delay_ms(500);
     }
 }
